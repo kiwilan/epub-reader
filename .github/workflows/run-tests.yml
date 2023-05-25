@@ -1,0 +1,29 @@
+name: Tests on unix
+
+on: [push, pull_request]
+
+jobs:
+  test:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: true
+      matrix:
+        os: [ubuntu-latest]
+        stability: [prefer-stable]
+
+    name: ${{ matrix.stability }} - ${{ matrix.os }}
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18.12.1
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8.1.1
+      - run: pnpm install
+      - run: cp .env.example .env
+      - run: pnpm lint
+      - run: pnpm build
+      - run: pnpm test

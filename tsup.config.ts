@@ -1,7 +1,7 @@
 import { defineConfig } from 'tsup'
 
 export default defineConfig({
-  name: 'fastify-utils',
+  name: 'epub-reader',
   entry: {
     index: 'src/index.ts',
   },
@@ -16,11 +16,6 @@ export default defineConfig({
   treeshake: true,
   splitting: true,
   external: [
-    'fastify',
     'esbuild',
-    '@fastify/env',
-    '@fastify/middie',
-    '@fastify/cors',
-    '@kiwilan/filesystem',
   ],
 })

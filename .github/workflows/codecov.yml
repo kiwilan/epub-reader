@@ -1,0 +1,25 @@
+name: codecov
+
+on: [push, pull_request]
+
+jobs:
+  release:
+    name: ci
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18.12.1
+          registry-url: https://registry.npmjs.org/
+      - run: npm i -g pnpm
+      - run: pnpm install
+      - run: cp .env.example .env
+      - run: pnpm build
+      - run: pnpm coverage
+
+      - name: Code coverage
+        uses: codecov/codecov-action@v3
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          verbose: false
