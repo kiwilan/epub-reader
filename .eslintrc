@@ -1,0 +1,13 @@
+{
+  "extends": "@antfu",
+  "rules": {
+    "no-console": [
+      "warn",
+      {
+        "allow": ["warn", "error", "debug"]
+      }
+    ],
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": "warn"
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "name": "epub-reader",
+  "type": "module",
+  "version": "0.0.1",
+  "description": "To parse and read EPUB files.",
+  "author": "Ewilan Rivière <ewilan.riviere@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/kiwilan/epub-reader",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kiwilan/epub-reader.git"
+  },
+  "bugs": {
+    "url": "https://github.com/kiwilan/epub-reader/issues"
+  },
+  "keywords": [
+    "epub",
+    "parser",
+    "reader"
+  ],
+  "exports": {
+    ".": {
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.js"
+    }
+  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "pnpm": ">=8.0.0",
+    "node": ">=16.0.0"
+  },
+  "directories": {
+    "dist": "dist"
+  },
+  "scripts": {
+    "build": "tsup --clean",
+    "watch": "tsup --watch",
+    "lint": "eslint . --ignore-path .gitignore",
+    "lint:fix": "eslint . --fix --ignore-path .gitignore",
+    "test": "vitest",
+    "coverage": "vitest run --coverage",
+    "package": "rm -f epub-reader-*.tgz ; pnpm build ; pnpm pack ; cp epub-reader-*.tgz ~/epub-reader.tgz"
+  },
+  "dependencies": {
+    "@kiwilan/filesystem": "^0.0.18",
+    "esbuild": "^0.17.19",
+    "ofetch": "^1.0.1"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^0.39.1",
+    "@types/node": "^20.2.1",
+    "@vitest/coverage-c8": "^0.31.1",
+    "c8": "^7.13.0",
+    "eslint": "^8.41.0",
+    "tsup": "^6.7.0",
+    "typescript": "^5.0.4",
+    "vitest": "^0.31.1"
+  }
+}
