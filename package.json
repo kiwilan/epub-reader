@@ -48,7 +48,11 @@
   },
   "dependencies": {
     "@kiwilan/filesystem": "^0.0.18",
+    "@zip.js/zip.js": "^2.7.14",
     "esbuild": "^0.17.19",
+    "fast-xml-parser": "^4.2.2",
+    "jszip": "^3.10.1",
+    "jszip-utils": "^0.1.0",
     "ofetch": "^1.0.1"
   },
   "devDependencies": {
@@ -59,6 +63,7 @@
     "eslint": "^8.41.0",
     "tsup": "^6.7.0",
     "typescript": "^5.0.4",
-    "vitest": "^0.31.1"
+    "vitest": "^0.31.1",
+    "zip.js": "link:@types/@zip.js/zip.js"
   }
 }
